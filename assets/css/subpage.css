@@ -74,10 +74,10 @@
 		}
 
 	a {
-		-moz-transition: border-color 0.2s ease-in-out;
-		-webkit-transition: border-color 0.2s ease-in-out;
-		-ms-transition: border-color 0.2s ease-in-out;
-		transition: border-color 0.2s ease-in-out;
+		-moz-transition: border-color 0.1s ease-in-out;
+		-webkit-transition: border-color 0.1s ease-in-out;
+		-ms-transition: border-color 0.1s ease-in-out;
+		transition: border-color 0.1s ease-in-out;
 		border-bottom: dotted 1px;
 		color: inherit;
 		outline: 0;
@@ -151,10 +151,10 @@
 	}
 
 	#wrapper {
-		-moz-animation: wrapper 3s forwards;
-		-webkit-animation: wrapper 3s forwards;
-		-ms-animation: wrapper 3s forwards;
-		animation: wrapper 3s forwards;
+		-moz-animation: wrapper 1s forwards;
+		-webkit-animation: wrapper 1s forwards;
+		-ms-animation: wrapper 1s forwards;
+		animation: wrapper 1s forwards;
 		height: 100%;
 		left: 0;
 		opacity: 0;
@@ -524,10 +524,10 @@
 		}
 
 			#header nav li {
-				-moz-animation: nav-icons 0.2s ease-in-out forwards;
-				-webkit-animation: nav-icons 0.2s ease-in-out forwards;
-				-ms-animation: nav-icons 0.2s ease-in-out forwards;
-				animation: nav-icons 0.2s ease-in-out forwards;
+				-moz-animation: nav-icons 0.5s ease-in-out forwards;
+				-webkit-animation: nav-icons 0.5s ease-in-out forwards;
+				-ms-animation: nav-icons 0.5s ease-in-out forwards;
+				animation: nav-icons 0.5s ease-in-out forwards;
 				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
 				-ms-backface-visibility: hidden;
