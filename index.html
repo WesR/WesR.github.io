@@ -1,142 +1,42 @@
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Wes Ring</title>
-			<style>
-			@charset "UTF-8";
-			@import url(font-awesome.min.css);
-			@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
-
-				html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-					margin: 0;
-					padding: 0;
-					border: 0;
-					font-size: 100%;
-					font: inherit;
-					vertical-align: baseline;
-				}
-
-
-				*, *:before, *:after {
-					-moz-box-sizing: border-box;
-					-webkit-box-sizing: border-box;
-					box-sizing: border-box;
-				}
-
-				body {
-					background-color: #000000;
-				}
-
-			
-				body, input, select, textarea {
-					color: #414f57;
-					font-family: "Source Sans Pro", Helvetica, sans-serif;
-					font-size: 14pt;
-					font-weight: 300;
-					line-height: 2;
-					letter-spacing: 0.2em;
-				}
-				
-				b {
-					font-weight: bold;
-				}
-				
-				p {
-					margin: 0 0 1.5em 0;
-				}
-
-				h1 {
-					font-size: 1.85em;
-					letter-spacing: 0.22em;
-					margin: 0 0 0.525em 0;
-				}
-
-				h2 {
-					font-size: 2em;
-				}
-
-				h3 {
-					font-size: 3em;
-				}
-
-
-				#main {
-					position: relative;
-					max-width: 80%;
-					min-width: 40em;
-					padding: 4.5em 3em 3em 3em ;
-					background: #ffffff;
-					border-radius: 4px;
-					cursor: default;
-					opacity: 0.95;
-					text-align: center;
-				}	
-
-				#wrapper {
-					display: -moz-flex;
-					display: -webkit-flex;
-					display: -ms-flex;
-					display: flex;
-					-moz-align-items: center;
-					-webkit-align-items: center;
-					-ms-align-items: center;
-					align-items: center;
-					-moz-flex-direction: column;
-					-webkit-flex-direction: column;
-					-ms-flex-direction: column;
-					flex-direction: column;
-					position: relative;
-					min-height: 100%;
-					padding: 1.5em;
-					z-index: 2;
-				}
-			
-	
-
-		input[type="button"],
-		button,
-		.button {
-			-moz-appearance: none;
-			-webkit-appearance: none;
-			-ms-appearance: none;
-			appearance: none;
-			-moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-			-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-			-ms-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-			transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-			display: inline-block;
-			height: 2.75em;
-			line-height: 2.75em;
-			padding: 0 1.5em;
-			background-color: transparent;
-			border-radius: 71px;
-			border: solid 1px #c8cccf;
-			color: #000000 ;
-			cursor: pointer;
-			text-align: center;
-			text-decoration: none;
-			white-space: nowrap;
-		}
-
-			input[type="submit"]:hover,
-			input[type="reset"]:hover,
-			input[type="button"]:hover,
-			button:hover,
-			.button:hover {
-				border-color: #ff7496;
-				color: #ff7496;
-			}
-			</style>
-
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body>
-			<div id="wrapper">
-					<section id="main">
-						<header>
-							<h3><b>Wes Ring</b></h3>
-							<p>Hello, I am Wes.</p>
-							
-							<img src="assets/images/wes-logo.png" alt="logo" width="150" height="150">
-					</section>	
-			</div>			
+	<body class="loading">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Wes Ring</h1>
+						<p>Catch me on the Internet</p>
+						<nav>
+							<ul>
+								<li><a href="https://twitter.com/RingWes" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://github.com/WesR" class="icon fa-github"><span class="label">Github</span></a></li>
+								
+								<li><a href="http://triangularcubicle.xyz/Web_Vectricity.html" class="icon fa-space-shuttle"><span class="label">Vectricity</span></a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<span class="footer"><p title="Theme by HTML5up">Wes Ring</p></span>
+					</footer>
+
+			</div>
+		</div>
+		<script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
 	</body>
 </html>
