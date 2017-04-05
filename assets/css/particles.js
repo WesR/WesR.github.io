@@ -14,17 +14,17 @@ function launchParticlesJS(a,e){var i=document.querySelector("#"+a+" > canvas");
 /* config dom id (optional) + config particles params */
 particlesJS('particles-js', {
   particles: {
-    color: '#fff',
-    shape: 'triangle', // "circle", "edge" or "triangle"
-    opacity: 1,
+    color: '#000',
+    shape: 'circle', // "circle", "edge" or "triangle"
+    opacity: 0.5,
     size: 4,
     size_random: true,
     nb: 300,
     line_linked: {
       enable_auto: true,
       distance: 100,
-      color: '#fff',
-      opacity: 1,
+      color: '#000',
+      opacity: 0.5,
       width: 1,
       condensed_mode: {
         enable: false,
