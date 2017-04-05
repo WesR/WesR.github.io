@@ -15,11 +15,11 @@ function launchParticlesJS(a,e){var i=document.querySelector("#"+a+" > canvas");
 particlesJS('particles-js', {
   particles: {
     color: '#fff',
-    shape: 'circle', // "circle", "edge" or "triangle"
+    shape: 'edge', // "circle", "edge" or "triangle"
     opacity: 1,
     size: 4,
     size_random: true,
-    nb: 150,
+    nb: 300,
     line_linked: {
       enable_auto: true,
       distance: 100,
@@ -38,7 +38,7 @@ particlesJS('particles-js', {
     }
   },
   interactivity: {
-    enable: true,
+    enable: false,
     mouse: {
       distance: 250
     },
