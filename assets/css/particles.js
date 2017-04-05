@@ -14,7 +14,7 @@ function launchParticlesJS(a,e){var i=document.querySelector("#"+a+" > canvas");
 /* config dom id (optional) + config particles params */
 particlesJS('particles-js', {
   particles: {
-    color: '#000',
+    color: '#0ff',
     shape: 'circle', // "circle", "edge" or "triangle"
     opacity: 1,
     size: 4,
@@ -23,7 +23,7 @@ particlesJS('particles-js', {
     line_linked: {
       enable_auto: true,
       distance: 100,
-      color: '#000',
+      color: '#0ff',
       opacity: 1,
       width: 1,
       condensed_mode: {
