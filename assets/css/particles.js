@@ -15,7 +15,7 @@ function launchParticlesJS(a,e){var i=document.querySelector("#"+a+" > canvas");
 particlesJS('particles-js', {
   particles: {
     color: '#fff',
-    shape: 'edge', // "circle", "edge" or "triangle"
+    shape: 'triangle', // "circle", "edge" or "triangle"
     opacity: 1,
     size: 4,
     size_random: true,
