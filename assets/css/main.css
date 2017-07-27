@@ -50,6 +50,13 @@
 		box-sizing: border-box;
 	}
 
+/* snapcode */
+	.snapcode {
+	    position: absolute;
+	    bottom: 16px;
+	    right: 16px;
+	}
+
 /* Basic */
 
 	body, input, select, textarea {
