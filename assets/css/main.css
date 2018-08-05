@@ -5,13 +5,9 @@ html, body {
 	/*background-image: url("/assets/images/bg-compressed.jpg");*/
 }
 
-h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 	color: white;
-}
-
-p, .black-text {
-	color: black;
 }
 
 .light-text, .footer {
@@ -44,4 +40,32 @@ a:hover {
 
 modal {
 	z-index: 100;
+}
+
+.parallax {
+    background-image: url("./../images/APC_0381.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.semiTransparent{
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.center-h{
+	margin: auto;
+	text-align: center;
+    width: 40%;
+    padding: 10px;
+}
+
+.center {
+	transform: translateY(150%);
+	margin: auto;
+	text-align: center;
+    width: 40%;
+    padding: 10px;
 }
