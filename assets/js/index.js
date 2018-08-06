@@ -12,3 +12,8 @@ window.onload = function () {
         });
     });
 };
+
+if (screen.width <= 720) {//Redirect if its a small screen (probably a phone)
+    window.location = "./mobile.html";
+    console.log('mobile redirect');
+}
