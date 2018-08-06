@@ -62,7 +62,7 @@ modal {
 }
 
 .center {
-	transform: translateY(100%);
+	transform: translateY(50%);
 	margin: auto;
 	text-align: center;
 	width: 40%;
