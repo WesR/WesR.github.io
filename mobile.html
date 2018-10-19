@@ -9,9 +9,38 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
     <link rel="stylesheet" href="assets/css/mobile.css" />
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/email.js"></script>
 </head>
 
 <body>
+
+    <div id="emailMe" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fontBlack">Email Me!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="emailForm">
+                        <div class="input-group mb-3">
+                            <input id='myEmail' type="text" class="form-control" value="" placeholder="This doesn't render with JS disabled (bot prevention)">
+                            <div class="input-group-append">
+                                <button id="cpyEmail" class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="parallax h-100">
         <div class="semiTransparent p-3 text-center">
             <div class="">
@@ -45,25 +74,40 @@
                         <i class="fab fa-snapchat fa-stack-2x"></i>
                     </a>
                 </li>
+                <li class="list-inline-item p-3">
+                    <a href="#" class="fa-stack fa-2x" data-toggle="modal" data-target="#emailMe">
+                        <i class="fas fa-envelope fa-stack-2x"></i>
+                    </a>
+                </li>
             </ul>
             <div class="center-about light-text">
                 <hr>
                 <div>
-                    <p>Wes is a Computer Science student at UNC Charlotte, focusing in Information Security.</p>
-                    <p>He is the current treasure of 49th Security Division, the school's hacking club.</p>
+                    <p>Wes is a Computer Science student at UNC Charlotte, focusing in Information Security, with a
+                        Computer Engineering minor.</p>
+                    <p>He is the current treasure of 49th Security Division, UNCC's hacking club.</p>
                     <p>Employment:</p>
-                    <ul class="text-left">
-                        <li>2017 - Pentair - Scaleable Microservices in Python using REST - Raleigh Research lab. </li>
-                        <li>2018 - SAS - Cross platform development using Electron, node.js, and Bootstrap - Cary campus.
-                        </li>
-                    </ul>
-                    <p>Awarded certifications include:</p>
-                    <ul class="text-left">
-                        <li>CompTIA Security+ ce</li>
-                        <li>CompTIA A+ ce</li>
-                        <li>98-364: MTA: Database Fundamentals</li>
-                        <li>98-374: MTA: Gaming Development Fundamentals (C#)</li>
-                    </ul>
+                    <hr>
+                    <p>SAS - 2018 - Cary campus. </p>
+
+                    <p>Headed a project that streamlines the creation and maintenance of pipeline nodes in
+                        Viya's
+                        Model Studio. Written in Electron, this included writing a JS API to interface with
+                        the
+                        Model Studio Server backend and building a dynamic visual editor for the supporting
+                        files
+                        to new or existing nodes. Provided CRUD functionality to the internal exchange.
+                    </p>
+                    <hr>
+                    <p>Pentair - 2017 - Raleigh Research lab.</p>
+                    <p>Headed a project that collected and parsed Lambda and SQS log files from AWS, then
+                        generated a report which was posted in Slack and charted over time on a dashboard.
+                        Designed and implemented a REST service to facilitate SSH handshakes through
+                        firewalls.
+                        Began research project on a mesh netting solution for IOT devices in proximity,
+                        allowing for network redundancy in remote locations.
+                    </p>
+                    <hr>
                     <p>My stronger languages are Python, js, Java, SQL, C#, and ROBOT-C.</p>
                     <hr>
                     <a href="https://wesring.com">
