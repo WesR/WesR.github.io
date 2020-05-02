@@ -3,7 +3,7 @@ window.onload = function () {
 
     Array.prototype.forEach.call(elements, function (el) {
         var chaffle = new Chaffle(el, {
-            lang: 'ja-katakana',//ja-katakana
+            lang: 'en',//ja-katakana
             speed: 10,
             delay: 60,
         })
