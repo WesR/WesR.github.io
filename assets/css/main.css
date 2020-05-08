@@ -1,68 +1,106 @@
-html, body {
-	height: 100%;
-	background-color: #292C33;
-	overflow-x: hidden;
-	/*background-image: url("/assets/images/bg-compressed.jpg");*/
+html, body, .backgroundBody {
+    margin: 0;
+}
+body, .backgroundBody {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #2E3561;
+    line-height: 1.3;
+    color: #585d81;
+}
+
+.backgroundBody {
+    color: #585d81;
+    height: auto !important;
+}
+
+.main {
+    max-width: 80ch;
+    padding: 2ch;
+    margin: auto;
 }
 
 p, ul, li, h1, h2, h3, h4, h5, h6 {
-	font-weight: 300;
-	color: white;
-}
-
-.fontBlack {
-	color: black;
-}
-
-.light-text, .footer {
-	color: #cfd2da;
-}
-
-.footer:hover {
-	color: #106382;
-	text-decoration: none;
+    color: #ecf0f1;
 }
 
 a {
-	color: #1997c6;
+	color: #fc3d21;
 	text-decoration: none;
 	background-color: transparent;
 }
 
 a:hover {
-	color: #106382;
+	color: #67809f;
 	text-decoration: none;
 }
 
-.footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
+button {
+    color: #fc3d21;
 }
 
-modal {
-	z-index: 100;
+button:hover {
+    background-color: #67809f;
 }
 
-.parallax {
-	background-image: url("./../images/APC_0381_compressed.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+hr {
+    border: 0;
+    border-top: dotted #fc3d21;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .semiTransparent {
-	background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-color: rgba(0, 0, 0, 0.7);
 }
 
-.center-about {
-	margin: auto;
-	width: 40%;
-	margin-top: 3rem;
-	margin-bottom: 5rem;
+.iconBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.emailBox {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.emailBtn {
+    border-left: 0;
+    outline: 0;
+}
+
+.emailBtn:focus{
+    border-left: 0;
+}
+
+.shell {
+    font-family: monospace;
+    border:none;
+    border-top: dotted #fc3d21;
+    padding-top: .7em;
+}
+
+.shellString {
+    color: #fc3d21;
+    padding-right: 0.5rem;
+    font-size: 2em;
+    border: 0;
+}
+.pattern-grid-xl-21 {
+    color: white !important;
+}
+
+.pb-2 {
+    padding-bottom: 2em;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .center {
@@ -72,3 +110,10 @@ modal {
 	width: 40%;
 	padding: 10px;
 }
+
+/*
+.pattern-cross-dots-xl-wes {
+    background-image:radial-gradient(#f15a22 0.1px, transparent 2px),radial-gradient(#f15a22 0.1px, transparent 2px);
+    background-size:calc(26 * 2px) calc(26 * 2px);
+    background-position:0 0,calc(13 * 2px) calc(13 * 2px);
+}*/

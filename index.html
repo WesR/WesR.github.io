@@ -4,93 +4,77 @@
 <head>
     <title>Wes Ring</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="The personal website for Wesley Ring, a student at UNCC majoring in Computer Science with a focus in Information Security. Wes Ring.">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="The personal website for Wesley Ring, a recent graduate of UNCC. Wes Ring.">
+    <link href="assets/css/pattern.min.css" rel="stylesheet">
+    <link href="assets/css/lit.css" rel="stylesheet">
+    <link href="assets/css/util.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chaffle.js"></script>
-    <script src="assets/js/index.js"></script>
+    <script src="assets/js/main.js"></script>
 </head>
 
 <body>
-
-    <div id="emailMe" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title fontBlack">Email Me!</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="backgroundBody pattern-grid-xl">
+        <div class="main">
+            <div class="card semiTransparent white">
+                <div class="tc">
+                    <h1>Wes Ring</h1>
+                    <p>Catch me on the internet</p>
                 </div>
-                <div class="modal-body">
-                    <form id="emailForm">
-                        <div class="input-group mb-3">
-                            <input id='myEmail' type="text" class="form-control" value="" placeholder="This doesn't render with JS disabled (bot prevention)">
-                            <div class="input-group-append">
-                                <button id="cpyEmail" class="btn btn-outline-secondary" type="button">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <hr>
+                <div class="iconBox">
+                    <div class="col">
+                        <a href="https://twitter.com/Und3rflow" class="fa-stack fa-2x">
+                            <i class="fab fa-twitter fa-stack-2x"></i>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="https://www.linkedin.com/in/wesley-ring-741181123" class="fa-stack fa-2x">
+                            <i class="fab fa-linkedin fa-stack-2x"></i>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="https://github.com/WesR" class="fa-stack fa-2x">
+                            <i class="fab fa-github fa-stack-2x"></i>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="https://www.snapchat.com/add/ringwes" class="fa-stack fa-2x">
+                            <i class="fab fa-snapchat fa-stack-2x"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="parallax h-100">
-        <div class="center semiTransparent">
-            <div>
-                <h1>Wes Ring</h1>
+            <div class="card semiTransparent white">
+                <h4>Email</h4>
+                <div class="emailBox pb-2">
+                    <div class="">
+                        <input id="myEmail" class="card" type="email" placeholder="This needs JS, sorry">
+                    </div>
+                    <div class="">
+                        <button class="emailBtn card" type="button" id="cpyEmail">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="pattern-dots-sm slategray h-5"></div>
+                <div class="shell emailBox">
+                    <p class="shellString card">$</p>
+                    <input class="card w-100" type="text" value="tr -d '$' <<< 'aGVsb$G9Ad$2Vzcm$luZy5j$b20=' | base64 -d">
+                    <p class="shellString card " style="visibility: hidden;/*I'm so sorry*/">$</p>
+                </div>
             </div>
-            <div class="list-inline">
-                <p class="list-inline-item light-text" data-chaffle="">Catch</p>
-                <p class="list-inline-item light-text" data-chaffle="">me</p>
-                <p class="list-inline-item light-text" data-chaffle="">on</p>
-                <p class="list-inline-item light-text" data-chaffle="">the</p>
-                <p class="list-inline-item light-text" data-chaffle="">internet</p>
+            <div class="card semiTransparent white">
+                <h4>Education</h4>
+                <div class="ph3">
+                    <p>I graduated UNC Charlotte with a BS in Computer Science, a focus in Information Security, and a Computer Engineering minor.</p>
+                    <p>I am the current treasure of the 49th Security Division, UNCC's hacking club.</p>
+                </div>
             </div>
-            <ul class="list-inline">
-                <li class="list-inline-item p-3">
-                    <a href="https://twitter.com/Und3rflow" class="fa-stack fa-2x">
-                        <i class="fab fa-twitter fa-stack-2x"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item p-3">
-                    <a href="https://www.linkedin.com/in/wesley-ring-741181123" class="fa-stack fa-2x">
-                        <i class="fab fa-linkedin fa-stack-2x"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item p-3">
-                    <a href="https://github.com/WesR" class="fa-stack fa-2x">
-                        <i class="fab fa-github fa-stack-2x"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item p-3">
-                    <a href="https://www.snapchat.com/add/ringwes" class="fa-stack fa-2x">
-                        <i class="fab fa-snapchat fa-stack-2x"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item p-3">
-                    <a href="#" class="fa-stack fa-2x" data-toggle="modal" data-target="#emailMe">
-                        <i class="fas fa-envelope fa-stack-2x"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="mx-auto">
-        <div class="center-about light-text">
-            <div>
-                <p>Wes is a Computer Science student at UNC Charlotte, focusing in Information Security, with a
-                    Computer Engineering minor.</p>
-                <p>He is the current treasure of 49th Security Division, UNCC's hacking club.</p>
-                <p>Employment:</p>
-                <ul>
+            <div class="card semiTransparent white">
+                <h4>Employment</h4>
+                <ul class="ph3">
                     <li>SAS - 2019 - Cary campus.
                         <ul>
                             <li>Working at GIS (Global Information Security)</li>
@@ -116,27 +100,23 @@
                         </ul>
                     </li>
                 </ul>
-                <p>Awarded certifications include:</p>
-                <ul>
+            </div>
+            <div class="card semiTransparent white">
+                <h4>Certifications</h4>
+                <ul class="ph3">
                     <li>CompTIA CySA+ Cybersecurity Analyst</li>
                     <li>CompTIA Security+ ce</li>
                     <li>CompTIA A+ ce</li>
+                    <li>Palo Alto Networks Certified Cybersecurity Associate</li>
                     <li>98-364: MTA: Database Fundamentals</li>
                     <li>98-374: MTA: Gaming Development Fundamentals (C#)</li>
                 </ul>
-                <p>My stronger languages are Python, js, C, Java, and SQL</p>
             </div>
         </div>
     </div>
     </div>
-    <!-- Footer -->
-    <footer id="footer">
-        <span class="footer">
-            <a href="https://wesring.com">
-                <p class="mb-2 footer">&copy; Wes Ring</p>
-            </a>
-        </span>
-    </footer>
+    </div>
+    </div>
 </body>
 
 </html>
