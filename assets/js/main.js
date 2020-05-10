@@ -6,6 +6,7 @@ window.onload = function () {
         document.getElementById('myEmail').placeholder = window.atob(eml);
     }
     addEmail();
+    document.getElementById("hideFromJS").style.display = "none";
     
     document.getElementById('cpyEmail').addEventListener('click', function (event) {
         addEmail();
