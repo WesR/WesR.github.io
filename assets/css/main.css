@@ -67,8 +67,9 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-left: 2em;
-    margin-right: 2em;
+    /**margin-left: 2em;
+    margin-right: 2em;**/
+    flex-wrap: wrap;
 }
 
 .emailBox {
