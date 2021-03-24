@@ -31,7 +31,7 @@ a {
 }
 
 a:hover {
-	color: #67809f;
+	color: #e2361d;
 	text-decoration: none;
 }
 
@@ -40,7 +40,7 @@ button {
 }
 
 button:hover {
-    background-color: #67809f;
+    background-color: #e2361d;
 }
 
 hr {
