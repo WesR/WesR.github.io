@@ -24,6 +24,10 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
     color: #ecf0f1;
 }
 
+h5 {
+    font-weight: bold;
+}
+
 a {
 	color: #fc3d21;
 	text-decoration: none;
@@ -52,10 +56,8 @@ hr {
 
 .fakehr {
     border: 0;
-    color: #fc3d21;
-    padding-top: 1em;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .semiTransparent {
@@ -107,7 +109,19 @@ ul {
     list-style-type: none;
 }
 
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .navbar-item {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-right: 0.25em;
+    margin-left: 0.25em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    flex: 10%;
     color: #ecf0f1;
     font-weight: bold;
     background: #fc3d21;
