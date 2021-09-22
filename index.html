@@ -5,7 +5,7 @@
     <title>Wes Ring</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Advanced Cybersecurity Services">
+    <meta name="description" content="The personal website for Wesley Ring, a recent graduate of UNCC. Wes Ring.">
     <link href="/assets/css/lit.css" rel="stylesheet">
     <link href="/assets/css/util.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
@@ -13,33 +13,90 @@
     <script src="/assets/js/main.js"></script>
 </head>
 
-<style>
-    body{
-        background-color: #2e3131;
-        font-family: "monospace" !important;
-    }
-
-    .main{
-        margin-top: 30vh;
-    }
-</style>
-
 <body>
-    <div class="main">
-        <h1 class="tc">wesr+ing security</h1>
-        <p class="tc">
-            Bringing computer security into the modern era. <br>Currently hiring. 
-        </p>
-        <div class="emailBox pb-2">
-            <div class="">
-                <input id="myEmail" name="email address" class="card" type="email" placeholder="This needs JS, sorry">
+    <div class="backgroundBody lines">
+        <div class="main">
+            <div class="card semiTransparent white">
+                <div class="tc">
+                    <h1 class="bold">Wes Ring</h1>
+                    <p>Catch me on the internet</p>
+                </div>
+                <div class="fakehr p1"></div>
+                <div class="navbar">
+                    <a href="https://twitter.com/Und3rflow" class="navbar-item" title="My Twitter">Twitter</a>
+                    <a href="https://www.linkedin.com/in/wesley-ring-741181123" class="navbar-item" title="My Linkedin">Linkedin</a>
+                    <a href="https://github.com/WesR" class="navbar-item" title="My Github">Github</a>
+                    <a href="https://ello.co/underflow" class="2 col navbar-item p1" title="My Ello">Ello (Photos)</a>
+                    <a href="https://www.snapchat.com/add/ringwes" class="2 col navbar-item p1" title="My Snapchat">Snapchat</a>
+                </div>
             </div>
-            <div class="">
-                <button class="emailBtn card" type="button" id="cpyEmail" title="email address copy button">
-                    <i class="fas fa-copy"></i>
-                </button>
+            <div class="card semiTransparent white">
+                <h4>Email</h4>
+                <div class="emailBox pb-2">
+                    <div class="">
+                        <input id="myEmail" name="email address" class="card" type="email" placeholder="This needs JS, sorry">
+                    </div>
+                    <div class="">
+                        <button class="emailBtn card" type="button" id="cpyEmail" title="email address copy button">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="hideFromJS">
+                    <div class="pattern-dots-sm fakehr"></div>
+                    <p>Here's a shell command if you dont want to run javascript</p>
+                    <div class="shell emailBox">
+                        <p class="shellString card">$</p>
+                        <input name="shell code to decode email" class="card w-100" type="text" value="tr -d '$' <<< 'aGVsb$G9Ad$2Vzcm$luZy5j$b20=' | base64 -d">
+                        <p class="shellString card " style="visibility: hidden;/*I'm so sorry*/">$</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card semiTransparent white">
+                <h4>Education</h4>
+                <div class="ph3">
+                    <p>I graduated UNC Charlotte in 2020 with a BS in Computer Science, a focus in Information Security, and a Computer Engineering minor.</p>
+                    <p>I was the Treasurer of the
+                        <a href="https://49sd.com" title="49th Security Division website">49th Security Division</a>, UNCC's hacking club, from 2017-2020. I have volunteered to help with
+                        <a href="https://carolinacon.org" title="CarolinaCon website">CarolinaCon</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="card semiTransparent white">
+                <h4>Employment</h4>
+                <div class="ph3">
+                    <p></p>
+                    <h5>SAS - Today - Associate Information Security Engineer - Cary</h5>
+                    <p>Working in GIS (Global Information Security) on Web Application Security</p>
+                    <div class="fakehr"></div>
+                    <h5>SAS - 2019 - Security Intern - Cary</h5>
+                    <p>Worked in GIS (Global Information Security) on researching and implementing new REST API Gateway policies leveraging Apigee. Maintained and further developed deployment automation service for Apigee. Security reviewed web applications
+                            for deployment using SAST, DAST, Dependency checking. Researched docker, kubernetes and deployment best practices.</p>
+                    <div class="fakehr"></div>
+                    <h5>SAS - 2018 - Developer Intern - Cary</h5>
+                    <p>Headed a project that streamlines the creation and maintenance of pipeline nodes in Viya's Model Studio. Written in Electron, this included writing a JS API to interface with the Model Studio Server backend and building a dynamic
+                            visual editor for the supporting files to new or existing nodes. Provided CRUD functionality to the internal exchange.</p>
+                    <div class="fakehr"></div>
+                    <h5>Pentair - 2017 - Developer Intern - Raleigh Research lab.</h5>
+                    <p>Headed a project that collected and parsed Lambda and SQS log files from AWS, then generated a report which was posted in Slack and charted over time on a dashboard. Designed and implemented a REST service to facilitate SSH handshakes
+                            through firewalls. Began research project on a mesh netting solution for IOT devices in proximity, allowing for network redundancy in remote locations.</p>
+                </div>
+            </div>
+            <div class="card semiTransparent white">
+                <h4>Certifications</h4>
+                <ul class="ph3">
+                    <li>CompTIA CySA+ Cybersecurity Analyst</li>
+                    <li>CompTIA Security+ ce</li>
+                    <li>CompTIA A+ ce</li>
+                    <li>Palo Alto Networks Certified Cybersecurity Associate</li>
+                    <li>98-364: MTA: Database Fundamentals</li>
+                    <li>98-374: MTA: Gaming Development Fundamentals (C#)</li>
+                </ul>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
     </div>
 </body>
 
