@@ -1,104 +1,149 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wes Ring</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="The personal website for Wesley Ring">
-    <link href="/assets/css/lit.css" rel="stylesheet">
-    <link href="/assets/css/util.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <script src="/assets/js/main.js"></script>
-</head>
+    <style>
+        @font-face {
+            font-family: 'CommitMono';
+            src: url('./assets/CommitMono/CommitMono VariableFont.woff2') format('woff2-variations');
+            font-weight: 100 900;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'CommitMono', monospace;
+            background: linear-gradient(135deg, #f5e6d3 0%, #d4c3b3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: #faf6f1;
+            padding: 2.5rem 3rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px -5px rgba(98, 76, 54, 0.15);
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            border: 1px solid rgba(98, 76, 54, 0.08);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #4a3828;
+        }
+
+        .links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: #6b5744;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(98, 76, 54, 0.15);
+            border-radius: 2px;
+            transition: all 0.2s ease;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        a:hover {
+            background: #fff;
+            color: #3c2f22;
+            box-shadow: 0 2px 8px -2px rgba(98, 76, 54, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(98, 76, 54, 0.15);
+            margin: 1.5rem 0;
+        }
+
+        .command-container {
+            position: relative;
+            text-align: left;
+        }
+
+        .command-label {
+            color: #6b5744;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .command-box {
+            background: rgba(98, 76, 54, 0.05);
+            padding: 1rem;
+            border-radius: 2px;
+            border: 1px solid rgba(98, 76, 54, 0.15);
+            font-size: 0.9rem;
+            color: #4a3828;
+            width: 100%;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin-bottom: 0.5rem;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 2rem;
+            right: 0.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(98, 76, 54, 0.15);
+            padding: 0.25rem 0.5rem;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: #6b5744;
+            transition: all 0.2s ease;
+        }
+
+        .copy-button:hover {
+            background: #fff;
+            color: #3c2f22;
+        }
+    </style>
+</head>
 <body>
-    <div class="backgroundBody lines">
-        <div class="main">
-            <div class="card semiTransparent white">
-                <div class="tc">
-                    <h1 class="bold">Wes Ring</h1>
-                    <p>Catch me on the internet</p>
-                </div>
-                <div class="fakehr p1"></div>
-                <div class="navbar">
-                    <a href="https://twitter.com/Und3rflow" class="navbar-item" title="My Twitter">Twitter</a>
-                    <a href="https://www.linkedin.com/in/wesley-ring" class="navbar-item" title="My Linkedin">Linkedin</a>
-                    <a href="https://github.com/WesR" class="navbar-item" title="My Github">Github</a>
-                    <a href="https://ello.co/underflow" class="2 col navbar-item p1" title="My Ello">Ello (Photos)</a>
-                    <a href="https://www.snapchat.com/add/ringwes" class="2 col navbar-item p1" title="My Snapchat">Snapchat</a>
-                </div>
-            </div>
-            <div class="card semiTransparent white">
-                <h4>Email</h4>
-                <div class="emailBox pb-2">
-                    <div class="">
-                        <input id="myEmail" name="email address" class="card" type="email" placeholder="This needs JS, sorry">
-                    </div>
-                    <div class="">
-                        <button class="emailBtn card" type="button" id="cpyEmail" title="email address copy button">
-                            <i class="fas fa-copy"></i>
-                        </button>
-                    </div>
-                </div>
-                <div id="hideFromJS">
-                    <div class="pattern-dots-sm fakehr"></div>
-                    <p>Here's a shell command if you dont want to run javascript</p>
-                    <div class="shell emailBox">
-                        <p class="shellString card">$</p>
-                        <input name="shell code to decode email" class="card w-100" type="text" value="tr -d '$' <<< 'aGVsb$G9Ad$2Vzcm$luZy5j$b20=' | base64 -d">
-                        <p class="shellString card " style="visibility: hidden;/*I'm so sorry*/">$</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card semiTransparent white">
-                <h4>Education</h4>
-                <div class="ph3">
-                    <p>I graduated UNC Charlotte in 2020 with a BS in Computer Science, a focus in Information Security, and a Computer Engineering minor.</p>
-                    <p>I have been part of the core team behind <a href="https://carolinacon.org" title="CarolinaCon website">CarolinaCon</a> since 2019.</p>
-                    <p>I was the Treasurer of the <a href="https://49sd.com" title="49th Security Division website">49th Security Division</a>, UNCC's hacking club, from 2017-2020. 
-                    </p>
-                </div>
-            </div>
-            <div class="card semiTransparent white">
-                <h4>Employment</h4>
-                <div class="ph3">
-                    <p></p>
-                    <h5>SAS - 2022 - Today - Senior Associate Information Security Engineer</h5>
-                    <p>Working on Webapp security, DevSecOps, API Management, Vulnerability Management, and automation</p>
-                    <h5>SAS - 2020 - 2022 - Associate Information Security Engineer</h5>
-                    <p>Working to shift security left in the application development lifecycle. Developing and learning more about securing containers, Azure, and the cloud</p>
-                    <div class="fakehr"></div>
-                    <h5>SAS - 2019 - 2020 - Security Intern</h5>
-                    <p>Worked in GIS (Global Information Security) on researching and implementing new REST API Gateway policies leveraging Apigee. Maintained and further developed deployment automation service for Apigee. Security reviewed web applications
-                            for deployment using SAST, DAST, Dependency checking. Researched docker, Kubernetes and deployment best practices.</p>
-                    <div class="fakehr"></div>
-                    <h5>SAS - 2018 - Developer Intern</h5>
-                    <p>Headed a project that streamlines the creation and maintenance of pipeline nodes in Viya's Model Studio. Written in Electron, this included writing a JS API to interface with the Model Studio Server backend and building a dynamic
-                            visual editor for the supporting files to new or existing nodes. Provided CRUD functionality to the internal exchange.</p>
-                    <div class="fakehr"></div>
-                    <h5>Pentair - 2017 - Developer Intern</h5>
-                    <p>Headed a project that collected and parsed Lambda and SQS log files from AWS, then generated a report which was posted in Slack and charted over time on a dashboard. Designed and implemented a REST service to facilitate SSH handshakes
-                            through firewalls. Began research project on a mesh netting solution for IOT devices in proximity, allowing for network redundancy in remote locations.</p>
-                </div>
-            </div>
-            <div class="card semiTransparent white">
-                <h4>Certifications</h4>
-                <ul class="ph3">
-                    <li>CompTIA CySA+ Cybersecurity Analyst</li>
-                    <li>CompTIA Security+ ce</li>
-                    <li>CompTIA A+ ce</li>
-                    <li>Palo Alto Networks Certified Cybersecurity Associate</li>
-                    <li>98-364: MTA: Database Fundamentals</li>
-                    <li>98-374: MTA: Gaming Development Fundamentals (C#)</li>
-                </ul>
-            </div>
+    <div class="card">
+        <h1>Wes Ring</h1>
+        <div class="links">
+            <a href="https://www.linkedin.com/in/wesley-ring" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/WesR" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <div class="divider"></div>
+        <div class="command-container">
+            <div class="command-label">email:</div>
+            <div class="command-box">tr -d '$' <<< 'aGVsb$G9Ad$2Vzcm$luZy5j$b20=' | base64 -d</div>
+            <button class="copy-button" onclick="copyCommand()">Copy</button>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
-</body>
 
+    <script>
+        function copyCommand() {
+            const command = "tr -d '$' <<< 'aGVsb$G9Ad$2Vzcm$luZy5j$b20=' | base64 -d";
+            navigator.clipboard.writeText(command).then(() => {
+                const button = document.querySelector('.copy-button');
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
 </html>
