@@ -216,10 +216,22 @@
         }
 
         .quote-box {
-            border: 1px solid var(--text);
+            background: var(--command-bg);
+            color: var(--command-text);
             padding: 1.5rem;
             min-height: 150px;
             position: relative;
+            border: 1px solid var(--text);
+        }
+
+        .terminal-prompt {
+            color: var(--text-dim);
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .terminal-prompt::before {
+            content: '$ ';
         }
 
         .quote-text {
@@ -232,7 +244,7 @@
             display: inline-block;
             width: 8px;
             height: 1.2em;
-            background: var(--text);
+            background: var(--command-text);
             animation: blink 1.2s step-end infinite;
             vertical-align: text-bottom;
         }
@@ -246,8 +258,8 @@
             top: 1rem;
             right: 1rem;
             background: none;
-            border: 1px solid var(--text);
-            color: var(--text);
+            border: 1px solid var(--command-text);
+            color: var(--command-text);
             width: 40px;
             height: 40px;
             cursor: pointer;
@@ -261,8 +273,8 @@
         }
 
         .quote-btn:hover {
-            background: var(--text);
-            color: var(--bg);
+            background: var(--command-text);
+            color: var(--command-bg);
         }
 
         .quote-btn:disabled {
@@ -341,6 +353,7 @@
         <section class="quote-section">
             <h2>Gibson</h2>
             <div class="quote-box">
+                <div class="terminal-prompt">curl gibson.wesring.com</div>
                 <div class="quote-text" id="quoteText">
                     <span class="quote-cursor"></span>
                 </div>
@@ -419,7 +432,10 @@
             try {
                 const response = await fetch('https://gibson.wesring.com/');
                 const data = await response.json();
-                const quote = data[0].response.response;
+                let quote = data[0].response.response;
+
+                // Strip surrounding quotation marks if they exist
+                quote = quote.replace(/^["']|["']$/g, '');
 
                 await typeText(quote, quoteText);
             } catch (error) {
