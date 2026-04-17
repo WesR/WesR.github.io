@@ -60,12 +60,14 @@
   .card {
     position: relative;
     z-index: 20;
-    width: min(440px, calc(100% - 3rem));
-    padding: 2.2rem 2.4rem;
+    width: min(460px, calc(100% - 2rem));
+    padding: 1.5rem 2rem;
     background: rgba(236, 231, 217, 0.92);
     border: 1px solid var(--ink);
     box-shadow: 0 24px 60px -20px rgba(18,17,16,0.35);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
   }
   .card::before {
     content: '';
@@ -79,38 +81,56 @@
     font-family: 'Newsreader', 'Georgia', serif;
     font-weight: 400;
     font-style: italic;
-    font-size: clamp(3.2rem, 8vw, 5rem);
-    line-height: 0.95;
+    font-size: clamp(2.6rem, 7vw, 3.6rem);
+    line-height: 0.9;
     letter-spacing: -0.02em;
-    margin-bottom: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    align-items: flex-start;
   }
 
   p {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     letter-spacing: 0.08em;
     opacity: 0.8;
-    margin-bottom: 1.6rem;
   }
 
   a.home {
     display: inline-block;
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--ink);
     text-decoration: none;
     border: 1px solid var(--ink);
-    padding: 0.5rem 0.9rem;
+    padding: 0.45rem 0.85rem;
     transition: background 0.2s, color 0.2s;
   }
   a.home:hover { background: var(--ink); color: var(--paper); }
+
+  @media (max-width: 480px) {
+    .card {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      padding: 1.8rem 1.6rem;
+    }
+    .copy { align-items: center; }
+  }
 </style>
 </head>
 <body>
   <section class="card">
     <h1>404</h1>
-    <p>You look a bit lost.</p>
-    <a class="home" href="/">← Home</a>
+    <div class="copy">
+      <p>You look a bit lost.</p>
+      <a class="home" href="/">← Home</a>
+    </div>
   </section>
 </body>
 </html>
