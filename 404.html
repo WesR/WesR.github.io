@@ -1,27 +1,116 @@
-<!DOCTYPE HTML>
-<html style="min-height: 100%;">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Wes Ring</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="The personal website for Wesley Ring, a recent graduate of UNCC. Wes Ring.">
-    <link href="/assets/css/pattern.min.css" rel="stylesheet">
-    <link href="/assets/css/lit.css" rel="stylesheet">
-    <link href="/assets/css/util.css" rel="stylesheet">
-    <link href="/assets/css/main.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 · Wes Ring</title>
+<meta name="description" content="Page not found.">
+<link rel="icon" href="./favicon.ico">
+<style>
+  @font-face {
+    font-family: 'CommitMono';
+    src: url('./assets/CommitMono/CommitMono VariableFont.woff2') format('woff2-variations');
+    font-weight: 100 900;
+  }
+  @font-face {
+    font-family: 'Newsreader';
+    src: url('./assets/Newsreader-VariableFont.woff2') format('woff2-variations');
+    font-weight: 200 800;
+    font-style: normal;
+  }
+
+  :root {
+    --ink: #121110;
+    --paper: #ece7d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'CommitMono', ui-monospace, monospace;
+    font-size: 15px;
+    line-height: 1.55;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+    z-index: 10;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(18,17,16,0.28) 100%);
+    z-index: 9;
+  }
+
+  .card {
+    position: relative;
+    z-index: 20;
+    width: min(440px, calc(100% - 3rem));
+    padding: 2.2rem 2.4rem;
+    background: rgba(236, 231, 217, 0.92);
+    border: 1px solid var(--ink);
+    box-shadow: 0 24px 60px -20px rgba(18,17,16,0.35);
+    text-align: center;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(18,17,16,0.25);
+    pointer-events: none;
+  }
+
+  h1 {
+    font-family: 'Newsreader', 'Georgia', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(3.2rem, 8vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    opacity: 0.8;
+    margin-bottom: 1.6rem;
+  }
+
+  a.home {
+    display: inline-block;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    padding: 0.5rem 0.9rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  a.home:hover { background: var(--ink); color: var(--paper); }
+</style>
 </head>
-
-<body style="min-height: 100vh !important;">
-    <div class="backgroundBody pattern-diagonal-stripes-xl" style="min-height: 100vh !important; color: #E7393F;">
-        <div class="main center">
-            <div class="card semiTransparent p3">
-                <h1>404</h1>
-                <p class="pb-2">You look a bit lost!</p>
-                <a href="https://wesring.com" class="btn">Go home</a>
-            </div>
-        </div>
-    </div>
+<body>
+  <section class="card">
+    <h1>404</h1>
+    <p>You look a bit lost.</p>
+    <a class="home" href="/">← Home</a>
+  </section>
 </body>
-
 </html>
