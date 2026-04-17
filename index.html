@@ -312,7 +312,7 @@
       H = canvas.height = Math.floor(window.innerHeight * DPR);
       canvas.style.width = window.innerWidth + 'px';
       canvas.style.height = window.innerHeight + 'px';
-      // cache is rebuilt on the next frame via ensureCacheSize()
+      // cache is rebuilt on the next frame via ensureBuffers()
     }
 
     const NBUCK = 6;
@@ -334,16 +334,51 @@
 
     let cacheW = 0, cacheH = 0;
     let cacheVx = null, cacheVy = null;
+    let cacheVxPrev = null, cacheVyPrev = null;
     const CELL = 14; // canvas px per cache cell
 
-    function ensureCacheSize() {
+    // Velocity field changes far slower than render fps — refill every Nth frame
+    // and interpolate between prev/current caches so motion stays smooth.
+    const CACHE_UPDATE_EVERY = 3;
+    let cacheFrameCounter = CACHE_UPDATE_EVERY; // force refill on first frame
+    let cacheLerpA = 1; // 0 = prev, 1 = current
+    let needsBootstrap = false;
+
+    // Hatch positions are deterministic per seed+size; bake them once per resize.
+    let jitterX = null, jitterY = null, jitterCount = 0;
+
+    function ensureBuffers() {
       const cw = Math.ceil(W / CELL) + 2;
       const ch = Math.ceil(H / CELL) + 2;
       if (cw !== cacheW || ch !== cacheH) {
         cacheW = cw; cacheH = ch;
         cacheVx = new Float32Array(cw * ch);
         cacheVy = new Float32Array(cw * ch);
+        cacheVxPrev = new Float32Array(cw * ch);
+        cacheVyPrev = new Float32Array(cw * ch);
+        rebuildJitter();
+        cacheFrameCounter = CACHE_UPDATE_EVERY;
+        needsBootstrap = true;
       }
+    }
+
+    function rebuildJitter() {
+      const spacing = 13 * DPR;
+      const cols = Math.ceil((W + spacing) / spacing) + 1;
+      const rows = Math.ceil((H + spacing) / spacing) + 1;
+      const cap = cols * rows;
+      jitterX = new Float32Array(cap);
+      jitterY = new Float32Array(cap);
+      const rand = mulberry32(seed ^ 0xabcdef);
+      let idx = 0;
+      for (let y = 0; y < H + spacing; y += spacing) {
+        for (let x = 0; x < W + spacing; x += spacing) {
+          jitterX[idx] = x + (rand() - 0.5) * spacing * 0.7;
+          jitterY[idx] = y + (rand() - 0.5) * spacing * 0.7;
+          idx++;
+        }
+      }
+      jitterCount = idx;
     }
 
     // Velocity field = curl of a 3-octave fBm streamfunction ψ.
@@ -380,14 +415,18 @@
       if (j < 0) j = 0; else if (j > cacheH - 2) j = cacheH - 2;
       const tx = fx - i, ty = fy - j;
       const idx = j * cacheW + i;
-      const vx00 = cacheVx[idx],         vx10 = cacheVx[idx + 1];
-      const vx01 = cacheVx[idx + cacheW], vx11 = cacheVx[idx + cacheW + 1];
-      const vy00 = cacheVy[idx],         vy10 = cacheVy[idx + 1];
-      const vy01 = cacheVy[idx + cacheW], vy11 = cacheVy[idx + cacheW + 1];
       const a = (1 - tx) * (1 - ty), b = tx * (1 - ty),
             c = (1 - tx) * ty,       d = tx * ty;
-      let vx = vx00 * a + vx10 * b + vx01 * c + vx11 * d;
-      let vy = vy00 * a + vy10 * b + vy01 * c + vy11 * d;
+      const cvx = cacheVx[idx] * a + cacheVx[idx + 1] * b
+                + cacheVx[idx + cacheW] * c + cacheVx[idx + cacheW + 1] * d;
+      const cvy = cacheVy[idx] * a + cacheVy[idx + 1] * b
+                + cacheVy[idx + cacheW] * c + cacheVy[idx + cacheW + 1] * d;
+      const pvx = cacheVxPrev[idx] * a + cacheVxPrev[idx + 1] * b
+                + cacheVxPrev[idx + cacheW] * c + cacheVxPrev[idx + cacheW + 1] * d;
+      const pvy = cacheVyPrev[idx] * a + cacheVyPrev[idx + 1] * b
+                + cacheVyPrev[idx + cacheW] * c + cacheVyPrev[idx + cacheW + 1] * d;
+      let vx = pvx + (cvx - pvx) * cacheLerpA;
+      let vy = pvy + (cvy - pvy) * cacheLerpA;
 
       // cursor vortex — cubic falloff keeps the effect tight and local
       if (hasMouse) {
@@ -413,8 +452,22 @@
       const noise3 = getNoise();
       time += dt * 0.00022; // ~12s per noise period
 
-      ensureCacheSize();
-      fillVelocityCache(noise3, time);
+      ensureBuffers();
+      if (needsBootstrap) {
+        fillVelocityCache(noise3, time);
+        cacheVxPrev.set(cacheVx);
+        cacheVyPrev.set(cacheVy);
+        needsBootstrap = false;
+        cacheFrameCounter = 0;
+      } else if (cacheFrameCounter >= CACHE_UPDATE_EVERY) {
+        // rotate current → prev, then refill current at the new time
+        let tmp = cacheVxPrev; cacheVxPrev = cacheVx; cacheVx = tmp;
+        tmp = cacheVyPrev; cacheVyPrev = cacheVy; cacheVy = tmp;
+        fillVelocityCache(noise3, time);
+        cacheFrameCounter = 0;
+      }
+      cacheLerpA = cacheFrameCounter / CACHE_UPDATE_EVERY;
+      cacheFrameCounter++;
 
       ctx.fillStyle = '#ece7d9';
       ctx.fillRect(0, 0, W, H);
@@ -426,26 +479,21 @@
         buckets[b].push(x1, y1, x2, y2);
       }
 
-      const spacing = 13 * DPR;
       const hatchLen = 11 * DPR;
-      const rand = mulberry32(seed ^ 0xabcdef);
       const v = [0, 0];
 
-      for (let y = 0; y < H + spacing; y += spacing) {
-        for (let x = 0; x < W + spacing; x += spacing) {
-          const jx = x + (rand() - 0.5) * spacing * 0.7;
-          const jy = y + (rand() - 0.5) * spacing * 0.7;
-          sampleVelocity(jx, jy, v);
-          const mag = Math.hypot(v[0], v[1]);
-          if (mag < 1e-6) continue;
-          const cosA = v[0] / mag;
-          const sinA = v[1] / mag;
-          // darkness scales with flow magnitude — fast currents read bolder
-          const darkness = Math.min(1, 0.3 + mag * 0.95);
-          const dx = cosA * hatchLen * 0.5;
-          const dy = sinA * hatchLen * 0.5;
-          push(darkness, jx - dx, jy - dy, jx + dx, jy + dy);
-        }
+      for (let k = 0; k < jitterCount; k++) {
+        const jx = jitterX[k], jy = jitterY[k];
+        sampleVelocity(jx, jy, v);
+        const mag = Math.hypot(v[0], v[1]);
+        if (mag < 1e-6) continue;
+        const cosA = v[0] / mag;
+        const sinA = v[1] / mag;
+        // darkness scales with flow magnitude — fast currents read bolder
+        const darkness = Math.min(1, 0.3 + mag * 0.95);
+        const dx = cosA * hatchLen * 0.5;
+        const dy = sinA * hatchLen * 0.5;
+        push(darkness, jx - dx, jy - dy, jx + dx, jy + dy);
       }
 
       ctx.lineWidth = 0.7 * DPR;
@@ -497,7 +545,14 @@
 
     window.addEventListener('resize', resize);
     resize();
-    requestAnimationFrame(frame);
+
+    // Respect OS-level reduced-motion: draw one static frame and stop.
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      render(16);
+    } else {
+      requestAnimationFrame(frame);
+    }
 
     const emailEl = document.getElementById('email');
     const copyBtn = document.getElementById('copyBtn');
