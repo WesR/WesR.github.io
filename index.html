@@ -546,9 +546,12 @@
     window.addEventListener('resize', resize);
     resize();
 
-    // Respect OS-level reduced-motion: draw one static frame and stop.
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reducedMotion) {
+    // Draw one static frame (no rAF loop) when the device is either
+    // a touch-primary device (phones/tablets) or the OS has reduced-motion set.
+    const staticMode =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(pointer: coarse)').matches;
+    if (staticMode) {
       render(16);
     } else {
       requestAnimationFrame(frame);
