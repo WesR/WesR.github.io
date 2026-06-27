@@ -163,6 +163,12 @@
     border-top: 1px solid rgba(18,17,16,0.25);
   }
 
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
   .project {
     display: flex;
     flex-direction: column;
@@ -227,9 +233,15 @@
     </div>
 
     <div class="bottom-row">
-      <div class="project">
-        <a href="https://podsearch.wesring.com/" target="_blank" rel="noopener noreferrer">Podsearch ↗</a>
-        <span class="project-desc">Odd Lots transcript search</span>
+      <div class="projects">
+        <div class="project">
+          <a href="https://podsearch.wesring.com/" target="_blank" rel="noopener noreferrer">Podsearch ↗</a>
+          <span class="project-desc">Odd Lots transcript search</span>
+        </div>
+        <div class="project">
+          <a href="https://snip.wesring.com/" target="_blank" rel="noopener noreferrer">SNIP ↗</a>
+          <span class="project-desc">browser-local syntax classifier</span>
+        </div>
       </div>
 
       <div class="links">
